@@ -1,4 +1,4 @@
-import { Product } from "../types/Product";
+import { Product } from "../../types/Product";
 
 type Props = {
     products: Product[]
@@ -6,8 +6,7 @@ type Props = {
 
 const ProductList = ({products}: Props) =>{
     if(products.length == 0 ){
-        return <p> Produto não encontrado</p>
-        
+        return <p>Produto não encontrado</p>
     }
     return(
         <ul>
