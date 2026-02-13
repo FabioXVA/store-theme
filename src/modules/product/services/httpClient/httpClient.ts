@@ -5,8 +5,8 @@ export const httpClient = {
             throw(`HTTP error ${response.status}`)
         }
         return response.json()
-    }   
+    }  
+  
 }
-
 
 

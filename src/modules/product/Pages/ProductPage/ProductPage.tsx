@@ -1,15 +1,19 @@
-import { render } from "@testing-library/react"
-import  { useProduct } from "../../hooks/useProducts/useProduct"
-import { Product } from "../../types/Product"
+import { useParams } from "react-router-dom"; 
+import { ProductItem } from "../../components/ProductItem/ProductItem";
+import { useProduct } from "../../hooks/useProduct/useProduct";
 
-export const ProductPage = () =>{
-    const result = useProduct<Product>()
+export default function ProductPage() {
+  const { id } = useParams();
+  const { product, load, error } = useProduct(Number(id));
 
-    const product = result.products.map(product => {
-        return product
-    })
+  if (load) return <p>Loading...</p>;
+  if (error) return <p>{error.toString()}</p>;
+  if (!product) return <p>No Product found</p>;
 
-    render(
-        <>{product}</>
-    )
+  return (
+    <div>
+      <h1 className="text-2xl font-sans">Product Page</h1>
+      <ProductItem product={product} />
+    </div>
+  );
 }

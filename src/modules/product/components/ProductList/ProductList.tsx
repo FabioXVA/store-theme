@@ -1,4 +1,5 @@
 import { Product } from "../../types/Product";
+import { ProductItem } from "../ProductItem/ProductItem";
 
 type Props = {
     products: Product[]
@@ -9,18 +10,19 @@ const ProductList = ({products}: Props) =>{
         return <p>Produto não encontrado</p>
     }
     return(
-        <div>
-            {products.map(product => {
-                return (
-                    <div key={product.id}>
-                        <h3>{product.title}</h3>
-                        <img src={product.image} alt={product.title} width="150px" height="160px"/>
-                        <p>{product.price}</p>
-                        <span>{product.category}</span>
-                        <p>{product.description}</p>
-                    </div>
-                )
-            })}
+          <div className="bg-white">
+            <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+                <h2 className="text-2xl font-bold tracking-tight text-gray-900">Lista de produtos</h2>
+                    <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    {products.map((product, key) => {
+                        return(
+                            <div className="group relative" key={key}>
+                                <ProductItem product={product} />
+                            </div>    
+                        )
+                    })}
+               </div>
+            </div>
         </div>
     )
 }

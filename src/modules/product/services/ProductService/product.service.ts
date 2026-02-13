@@ -6,20 +6,24 @@ export class ProductServiceError extends Error {}
 export const ProductService = {
     getAll: async (): Promise<Product[]> =>   {
         try{
-            return await httpClient.get<Product[]>("https://fakestoreapi.com/products")
+            const response =  await httpClient.get<Product[]>("https://fakestoreapi.com/products")
+            return response
+            
         }catch(error){
             throw new ProductServiceError(`Erro ao buscar: ${error}`)
         }
-        
     },
-    getProduct: async ():Promise<Product[]> =>{
+    getProduct: async (id: number) =>{
             try{
-                return await httpClient.get('https://fakestoreapi.com/products/{id}');   
+                const response = await httpClient.get<Product>(`https://fakestoreapi.com/products/${id}`)
+                  console.log("response", response)
+                return response
+                
             }catch(err){
-                throw new ProductServiceError(`Erro ao buscar produtp: ${err}`)
+                throw new ProductServiceError(`Erro ao buscar produto: ${err}`)
             }
-             
-
+          
+         
     }
 }
 
