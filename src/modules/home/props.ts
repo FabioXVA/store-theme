@@ -18,3 +18,27 @@ export const bannerProducts = [
         bannerClass:"bg-gray-900/95"
     }
 ];
+
+export const slideProps = [
+    {
+        title:"Melhor Oferts de eletronicos", 
+        subtitle: "Mantenha-se elegante com as nossas novidades!",
+        image:"slider1.png", 
+        link:"/product/1",
+        buttonText:"Compre Agora",
+    },
+    {
+        title:"Utensílios essenciais de cozinha", 
+        subtitle: "Atualize sua experiência culinária",
+        image:"slider2.png", 
+        link:"/product/2",
+        buttonText:"Compre Agora",
+    },
+    {
+        title:"Tendências da moda", 
+        subtitle: "Explore a última tecnologia", 
+        image:"slider3.png", 
+        link:"/product/3",
+        buttonText:"Compre Agora",
+    }
+];
