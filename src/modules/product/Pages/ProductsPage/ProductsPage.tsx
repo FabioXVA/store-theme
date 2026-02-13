@@ -1,9 +1,9 @@
 import ProductList from "../../components/ProductList/ProductList";
-import { useProduct } from "../../hooks/useProduct/useProduct";
+import { useProducts } from "../../hooks/useProducts/useProduct";
 
 
 export default function ProductsPage() {
-    const {products, load, error}  = useProduct();
+    const {products, load, error}  = useProducts();
 
     if(load) return <p role="status">loading...</p>
     if(error) return <p role="error">erro ao carregar os produtos</p>

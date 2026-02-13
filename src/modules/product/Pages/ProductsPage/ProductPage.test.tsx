@@ -1,12 +1,22 @@
 import {render, screen } from '@testing-library/react';
 import ProductsPage  from "../ProductsPage/ProductsPage";
-import { useProduct } from '../../hooks/useProduct/useProduct';
+import { useProduct } from '../../hooks/useProducts/useProduct';
 
 jest.mock("../../hooks/useProduct/useProduct");
 
 const mockUseProduct = useProduct as jest.Mock;
+const mockProduct = [{
+    id: "1",
+    name: "carro",
+    price: 10,
+    createdAt: "02-04-2026"
+}]
 
 describe("ProductPage", ()=>{
+     beforeEach(()=>{
+        jest.clearAllMocks();
+    })
+
     it("deve mostrar o loading", () =>{
         mockUseProduct.mockReturnValue({
             products: [],
@@ -30,12 +40,7 @@ describe("ProductPage", ()=>{
     })
     it("deve renderizar a lista de produtos", async ()=> {
         mockUseProduct.mockReturnValue({
-            products:[{
-                id: "1",
-                name: "carro",
-                price: 10,
-                createdAt: "02-04-2026"
-            }],
+            products: mockProduct,
             load: false,
             error: false
         })
