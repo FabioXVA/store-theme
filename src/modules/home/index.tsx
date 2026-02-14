@@ -1,4 +1,4 @@
-import  Banner  from "../../shered/components/Banner";
+import  {FeaturedProduct}  from "../product/components/FeaturedProduct";
 import Slider from "../home/components/SlideHome";
 import { bannerProducts, slideProps } from "./props";
 
@@ -11,7 +11,7 @@ export default function  Home() {
                  <Slider slideProps={slideProps}  />    
             </div>
              <div className="bg-gray-100 p-4  max-w-full mx-auto pt-[32px]">
-                   <Banner bannerProducts={bannerProducts} />  
+                   <FeaturedProduct products={bannerProducts} />  
              </div>
            
     </div>

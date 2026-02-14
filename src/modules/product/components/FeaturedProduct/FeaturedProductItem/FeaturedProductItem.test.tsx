@@ -1,6 +1,5 @@
 import {render, screen} from "@testing-library/react"
-import { BannerItem } from "./index";
-import {BannerItemProps} from "../types";
+import { FeaturedProductItem } from "./index";
 
 const mockBannerProduct = {  
         title:"Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
@@ -10,11 +9,10 @@ const mockBannerProduct = {
     }
 
 describe ("BannerItem component", () => {
-
         it("deve renderizar o componente BannerItem corretamente", () => {
-           	render(<BannerItem {...mockBannerProduct}/>)
+           	render(<FeaturedProductItem {...mockBannerProduct} />)
 
-            expect(screen.getAllByTestId("banner")).toHaveLength(1)
+            expect(screen.getAllByTestId("FeaturedProduct")).toHaveLength(1)
             expect(screen.getByText(/Fjallraven/)).toBeInTheDocument()
             expect(screen.getByText(/Mais informações/i)).toBeInTheDocument()
         })

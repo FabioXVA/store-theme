@@ -1,7 +1,18 @@
-export const Card = ({children, classCard}: {children: React.ReactNode, classCard: string}) =>{
+import {CardProps} from "./types";
+
+export const Card = ({
+                imgAlt,
+                imgSrc, 
+                class_card, 
+                class_card_image, 
+                children} : CardProps) =>{
+            
     return(
-         <div data-testid="banner" className={`${classCard} h-[420px] w-[400px] p-8 rounded-lg max-w-md mx-auto flex justify-center flex-col`}>
-           {children}
+         <div className={`h-full w-[270px] ${class_card} `}>
+            <img src={imgSrc} alt={imgAlt} className={`${class_card_image} w-full object-contain`} />
+            <div className="mt-4 flex flex-col">
+                {children}
+            </div>
         </div>
     )
 }
