@@ -8,13 +8,13 @@ export const bannerProducts = [
     {
         title:"Cotton T-Shirts", 
         image:"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png", 
-        link:"/product/1",
+        link:"/product/2",
         bannerClass:"bg-amber-700/95"
     },
     {
         title:"Mens Cotton Jacket", 
         image:"	https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png", 
-        link:"/product/1",
+        link:"/product/3",
         bannerClass:"bg-gray-900/95"
     }
 ];

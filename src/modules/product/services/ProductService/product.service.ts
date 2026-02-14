@@ -16,7 +16,7 @@ export const ProductService = {
     getProduct: async (id: number) =>{
             try{
                 const response = await httpClient.get<Product>(`https://fakestoreapi.com/products/${id}`)
-                  console.log("response", response)
+                
                 return response
                 
             }catch(err){
