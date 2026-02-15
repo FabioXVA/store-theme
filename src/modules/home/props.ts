@@ -15,7 +15,7 @@ export const bannerProducts = [
         title:"Mens Cotton Jacket", 
         image:"	https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png", 
         link:"/product/3",
-        featuredProductClass:"bg-gray-900/95"
+        featuredProductClass:"bg-gray-900/95",
     }
 ];
 

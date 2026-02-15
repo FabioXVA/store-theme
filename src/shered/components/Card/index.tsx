@@ -8,7 +8,7 @@ export const Card = ({
                 children} : CardProps) =>{
             
     return(
-         <div className={`h-full w-[270px] ${class_card} `}>
+         <div className={`h-full w-[270px] ${class_card}`}>
             <img src={imgSrc} alt={imgAlt} className={`${class_card_image} w-full object-contain`} />
             <div className="mt-4 flex flex-col">
                 {children}

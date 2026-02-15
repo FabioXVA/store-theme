@@ -1,7 +1,7 @@
-import ProductList from "../../components/ProductList/ProductList"
 import { Product } from "../../types/Product";
 import { useProducts } from "../../hooks/useProducts/useProducts";
 import { useParams } from "react-router";
+import Shelf from "../../components/Shelf";
 
 export default function ProductCategory (){
     const {products, load} = useProducts()
@@ -13,7 +13,7 @@ export default function ProductCategory (){
     })
     
     return (
-        <ProductList products={filterProducts}/>
+        <Shelf products={filterProducts}/>
     )
 }
 
