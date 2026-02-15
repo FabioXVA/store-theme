@@ -6,6 +6,7 @@
     { "path": "./tsconfig.jest.json" }
   ],
   "compilerOptions": {
-    
+    "jsx": "react-jsx",
+  "esModuleInterop": true
   }
 }

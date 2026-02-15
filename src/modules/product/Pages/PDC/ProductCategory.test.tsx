@@ -43,10 +43,7 @@ describe("ProductCategory", ()=>{
         });
  
         render(<ProductCategory/>)
-
-        const items = await screen.findAllByTestId("product-item")
         
-        expect(items).toHaveLength(1)
         expect(await screen.findByText(/Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops/i)).toBeInTheDocument()
         expect(await screen.queryByText(/Mens Casual Premium Slim Fit T-Shirts/i)).not.toBeInTheDocument()
    

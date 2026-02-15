@@ -7,17 +7,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-// interface SlideConfigProps {
-//     modules: [string],
-//     navigation: boolean,
-//     loop: boolean,
-//     autoplay: {
-//         delay: number,
-//         disableOnInteraction: boolean,
-//     },
-//     pagination: { clickable: boolean },
-// };
-
 const SWIPER_CONFIG = {
     modules: [Navigation, Pagination, Autoplay],
     navigation: true,

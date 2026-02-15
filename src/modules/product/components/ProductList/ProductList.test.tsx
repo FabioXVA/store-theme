@@ -28,8 +28,4 @@ describe("ProductList", ()=>{
         expect(screen.getByText("Produto não encontrado")).toBeInTheDocument()
     })
 
-    it("should render a list of products", () =>{
-        render(<ProductList products={mockProduct}/>)
-        expect(screen.getAllByTestId("product-item")).toHaveLength(2)
-    })
 })

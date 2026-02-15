@@ -1,19 +1,31 @@
 import type { Config } from 'jest'
 
 const config: Config = {
-  preset: 'ts-jest',
+  preset: 'ts-jest/presets/default-esm',
+
   testEnvironment: 'jsdom',
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.jest.json',
-      isolatedModules: true
-    },
+  extensionsToTreatAsEsm: ['.ts', '.tsx'],
+
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      { tsconfig: '<rootDir>/tsconfig.jest.json', useESM: true },
+    ],
   },
 
+  transformIgnorePatterns: [
+    'node_modules/(?!(swiper|ssr-window|dom7)/)',
+  ],
+
   moduleNameMapper: {
+    '^swiper/react$': '<rootDir>/__mocks__/swiper/react.tsx',
+    '^swiper/modules$': '<rootDir>/__mocks__/swiper/modules.ts',
+    '^swiper/css$': 'identity-obj-proxy',
+    '^swiper/css/(.*)$': 'identity-obj-proxy',
+    '\\.(css|scss|sass|less)$': 'identity-obj-proxy',
     '^@/(.*)$': '<rootDir>/src/$1',
   },
 }
