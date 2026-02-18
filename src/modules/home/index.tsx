@@ -13,13 +13,16 @@ export default function  Home() {
       if (error) return <p>{error.toString()}</p>;
       if (!products.length) return <p>No Product found</p>;
 
-    const filterProducts = products.filter((c:Product)=>{
+        const filterProducts = products.filter((c:Product)=>{
             return c.category === "electronics"
         })
         
-    return (
+        const filterProductsCategory = products.filter((c:Product)=>{
+            return c.category === "women's clothing"
+        })
+        
+          return (
         <div>
-             <h1>Home Page</h1>
             <div className="max-w-[1345px]  m-auto">
                  <Slider slideProps={slideProps}  />    
             </div>
@@ -31,6 +34,16 @@ export default function  Home() {
              <div className=" p-4  max-w-full mx-auto pt-[32px]">
                 <div className="max-w-[1345px] m-auto">
                     <Shelf products={filterProducts} />  
+                </div>
+             </div>
+             <div className=" p-4  max-w-full mx-auto pt-[32px]">
+                <div className="max-w-[1345px] m-auto">
+                    <Shelf products={filterProductsCategory} />  
+                </div>
+             </div>
+             <div className=" p-4  max-w-full mx-auto pt-[32px]">
+                <div className="max-w-[1345px] m-auto">
+                    <Shelf products={products} />  
                 </div>
              </div>
         </div>

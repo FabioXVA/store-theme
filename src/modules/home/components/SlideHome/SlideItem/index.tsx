@@ -1,7 +1,13 @@
 import { SlideItemProps } from "../types"
 
 export const SlideItem = (slideItemProps: SlideItemProps) => {
-    const{title , image, subtitle, link, buttonText} = slideItemProps
+    const{
+        title, 
+        image, 
+        subtitle, 
+        link, 
+        buttonText} = slideItemProps
+
     return (
         <div className='relative'>
             {image && 

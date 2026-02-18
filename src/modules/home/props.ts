@@ -21,7 +21,7 @@ export const bannerProducts = [
 
 export const slideProps = [
     {
-        title:"Melhor Oferts de eletronicos", 
+        title:"Tendências da moda", 
         subtitle: "Mantenha-se elegante com as nossas novidades!",
         image:"slider1.png", 
         link:"/product/1",
@@ -35,10 +35,10 @@ export const slideProps = [
         buttonText:"Compre Agora",
     },
     {
-        title:"Tendências da moda", 
+        title:"Melhor Oferts de eletronicos", 
         subtitle: "Explore a última tecnologia", 
         image:"slider3.png", 
-        link:"/product/3",
+        link:"/category/electronics",
         buttonText:"Compre Agora",
     }
 ];

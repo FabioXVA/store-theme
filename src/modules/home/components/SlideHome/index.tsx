@@ -6,35 +6,29 @@ import { SlideProps, SlideItemProps } from './types';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { Carousel } from '../../../../shered/components/Carousel';
 
-const SWIPER_MODULES = [Navigation, Pagination, Autoplay];
-
-const swiperOptions = {
+const finalConfig = {
     navigation: true,
     loop: true,
+    slidesPerView: 1,
     autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
+        delay: 3000
     },
+    breakpoints:{ },
     pagination: { clickable: true },
-} as const;
+};
 
 export default function Slider({slideProps}: SlideProps ) {
     return(
        <>
-         <Swiper
-            modules={SWIPER_MODULES}
-            navigation={swiperOptions.navigation}
-            loop={swiperOptions.loop}
-            autoplay={swiperOptions.autoplay}
-            pagination={swiperOptions.pagination}
-         >
-                {slideProps?.map((slide: SlideItemProps, idx: number) => (
-                    <SwiperSlide key={idx}>
-                        <SlideItem {...slide} />
-                    </SwiperSlide>
-                ))}
-        </Swiper>
+            <Carousel
+                slide_config={ finalConfig}
+                itens={slideProps}
+                renderItem={(slideProp) => (
+                <SlideItem {...slideProp} />
+            )}
+            />
        </>
 
     )
