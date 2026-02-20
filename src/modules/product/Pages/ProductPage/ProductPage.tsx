@@ -13,7 +13,7 @@ export default function ProductPage() {
   return (
     <div>
       <h1 className="text-2xl font-sans">Product Page</h1>
-      <ProductItem product={product} />
+      <ProductItem product={product}  />
     </div>
   );
 }

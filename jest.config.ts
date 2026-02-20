@@ -22,7 +22,6 @@ const config: Config = {
 
   moduleNameMapper: {
     '^swiper/react$': '<rootDir>/__mocks__/swiper/react.tsx',
-    '^swiper/modules$': '<rootDir>/__mocks__/swiper/modules.ts',
     '^swiper/css$': 'identity-obj-proxy',
     '^swiper/css/(.*)$': 'identity-obj-proxy',
     '\\.(css|scss|sass|less)$': 'identity-obj-proxy',

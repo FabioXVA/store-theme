@@ -1,7 +1,9 @@
+import {Price} from "./Price"
+
 export type Product = {
     id:number
     title: string
-    price: number
+    price: Price
     description: string
     category: string
     image: string

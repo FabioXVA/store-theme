@@ -11,7 +11,7 @@ export default function ProductPage() {
   if (!product) return <p>No Product found</p>;
 
   return (
-    <div className="bg-gray-900 h-lvh">
+    <div className="bg-gray-900 h-lvh" data-testid="product-item">
       <ProductItem product={product} />
     </div>
   );
