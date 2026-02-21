@@ -1,9 +1,10 @@
+import type { JSX } from "react"
 import { useParams } from "react-router-dom"
 
 import { ProductItem } from "../../components/ProductItem/ProductItem"
 import { useProduct } from "../../hooks/useProduct/useProduct"
 
-export default function ProductPage() {
+export default function ProductPage(): JSX.Element {
   const { id } = useParams()
   const { product, load, error } = useProduct(Number(id))
 

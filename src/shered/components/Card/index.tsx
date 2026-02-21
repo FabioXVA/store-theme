@@ -1,3 +1,5 @@
+import type { JSX } from "react"
+
 import type { CardProps } from "./types"
 
 export const Card = ({
@@ -6,7 +8,7 @@ export const Card = ({
   class_card,
   class_card_image,
   children,
-}: CardProps) => {
+}: CardProps): JSX.Element => {
   return (
     <div className={`h-full max-w-[270px]  w-full ${class_card}`}>
       <img src={imgSrc} alt={imgAlt} className={`${class_card_image} object-contain`} />

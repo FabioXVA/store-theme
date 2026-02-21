@@ -1,7 +1,10 @@
 import type { JSX } from "react"
 
+import type { Product } from "@/modules/product/types/Product"
+import { Price } from "@/shered/components/Price/Index"
+import { Rating } from "@/shered/components/Rating"
+
 import { Card } from "../../../../../shered/components/Card"
-import { Product } from "@/modules/product/types/Product"
 
 const MiniCartItem = (product: Product): JSX.Element => {
   return (
@@ -18,21 +21,28 @@ const MiniCartItem = (product: Product): JSX.Element => {
               className="text-xs font-semibold   text-white hover:underline dark:text-white "
             >
               {product.title}
-                    <div className="mt-1 flex justify-between flex-col">
-                        <div className="flex">
-                            <Rating {...product.rating} />
-                            <Price price={product.price} className="text-[18px] font-extrabold text-white  dark:text-white pr-1 "/>
-                        </div>
-                        <div className="flex justify-start bg-white rounded-xl w-[90px] pr-4 pl-4">
-                            <button className="text-xs text-black font-bold pr-[16px]">x</button>
-                            <input type="text"  className="text-xs text-black font-bold w-[10px]" value="2" />
-                            <button className="text-xs text-black font-bold pl-[16px]">+</button>
-                        </div>
-                    
-                    </div>
-            </>   
-        </ Card>
-        </div>
+              <div className="mt-1 flex justify-between flex-col">
+                <div className="flex">
+                  <Rating {...product.rating} />
+                  <Price
+                    price={product.price}
+                    className="text-[18px] font-extrabold text-white  dark:text-white pr-1 "
+                  />
+                </div>
+                <div className="flex justify-start bg-white rounded-xl w-[90px] pr-4 pl-4">
+                  <button className="text-xs text-black font-bold pr-[16px]">x</button>
+                  <input
+                    type="text"
+                    className="text-xs text-black font-bold w-[10px]"
+                    value="2"
+                  />
+                  <button className="text-xs text-black font-bold pl-[16px]">+</button>
+                </div>
+              </div>
+            </a>
+          </>
+        </Card>
+      </div>
     </div>
   )
 }

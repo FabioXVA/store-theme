@@ -14,7 +14,7 @@ export const ProductService = {
       throw new ProductServiceError(`Erro ao buscar: ${error}`)
     }
   },
-  getProduct: async (id: number) => {
+  getProduct: async (id: number): Promise<Product> => {
     try {
       const response = await httpClient.get<Product>(
         `https://fakestoreapi.com/products/${id}`,

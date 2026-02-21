@@ -3,16 +3,20 @@ import { useEffect, useState } from "react"
 import {
   ProductService,
   ProductServiceError,
-} from "../../services/ProductService/product.service"
-import type { Product } from "../../types/Product"
+} from "@/modules/product/services/ProductService/product.service"
+import type { Product } from "@/modules/product/types/Product"
 
-export function useProducts() {
+export function useProducts(): {
+  products: Product[]
+  error: Error | string | null
+  load: boolean
+} {
   const [products, setProducts] = useState<Product[]>([])
   const [error, setError] = useState<Error | string | null>(null)
   const [load, setLoad] = useState(true)
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProducts = async (): Promise<void> => {
       try {
         const data = await ProductService.getAll()
         setProducts(data)

@@ -1,6 +1,8 @@
+import type { JSX } from "react"
+
 import { Button } from "../Button"
 
-export const BuyButton = (id: number) => {
+export const BuyButton = (): JSX.Element => {
   const Icon = (
     <svg
       className="w-5 h-5 -ms-2 me-2"

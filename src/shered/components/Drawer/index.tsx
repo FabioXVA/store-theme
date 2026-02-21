@@ -1,9 +1,11 @@
+import type { JSX } from "react"
+
 interface Props {
   children: React.ReactNode
   id: string
 }
 
-export const Drawer = ({ id, children }: Props) => {
+export const Drawer = ({ id, children }: Props): JSX.Element => {
   return (
     <div
       id={`drawer-${id}`}

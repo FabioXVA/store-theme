@@ -1,9 +1,11 @@
-import { BuyButton } from "../../../../shered/components/BuyButton"
-import { Price } from "../../../../shered/components/Price/Index"
-import { Rating } from "../../../../shered/components/Rating"
-import type { Product } from "../../types/Product"
+import type { JSX } from "react"
 
-export function ProductItem({ product }: { product: Product }) {
+import type { Product } from "@/modules/product/types/Product"
+import { BuyButton } from "@/shered/components/BuyButton"
+import { Price } from "@/shered/components/Price/Index"
+import { Rating } from "@/shered/components/Rating"
+
+export function ProductItem({ product }: { product: Product }): JSX.Element {
   return (
     <section
       className="py-8 bg-white md:py-16 dark:bg-gray-900 antialiased"

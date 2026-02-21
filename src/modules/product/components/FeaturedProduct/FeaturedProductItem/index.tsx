@@ -1,8 +1,10 @@
+import type { JSX } from "react"
+
 import { ArrowRight } from "../../../../../assets/ArrowRight"
 import { Card } from "../../../../../shered/components/Card"
 import type { FeaturedProductItemProps } from "../types"
 
-export const FeaturedProductItem = (props: FeaturedProductItemProps) => {
+export const FeaturedProductItem = (props: FeaturedProductItemProps): JSX.Element => {
   const { title, image, link, featuredProductClass } = props
 
   return (

@@ -1,9 +1,11 @@
+import type { JSX } from "react"
+
 import { Carousel } from "../../../../shered/components/Carousel"
 import { FeaturedProductItem } from "./FeaturedProductItem"
 import { slide_config } from "./slide_config"
 import type { FeaturedProductProps } from "./types"
 
-export function FeaturedProduct({ products }: FeaturedProductProps) {
+export function FeaturedProduct({ products }: FeaturedProductProps): JSX.Element {
   return (
     <div>
       <p className="text-2xl font-open-sans text-gray-900 text-center mb-[1rem">

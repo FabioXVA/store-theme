@@ -1,11 +1,14 @@
-import type { Product } from "../../types/Product"
+import type { JSX } from "react"
+
+import type { Product } from "@/modules/product/types/Product"
+
 import { ProductCard } from "../ProductCard"
 
 type Props = {
   products: Product[]
 }
 
-const ProductList = ({ products }: Props) => {
+const ProductList = ({ products }: Props): JSX.Element => {
   if (products.length == 0) {
     return <p>Produto não encontrado</p>
   }

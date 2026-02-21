@@ -1,4 +1,4 @@
-export const formatBRL = (price: number) => {
+export const formatBRL = (price: number): string | null => {
   const n = getFormattedPrice(price)
   if (n === null) return null
 
@@ -8,20 +8,18 @@ export const formatBRL = (price: number) => {
   }).format(n)
 }
 
-export const getFormattedPrice = (price: number) => {
+export const getFormattedPrice = (price: number): number | null => {
   if (price === null || price === undefined) return null
 
   const base = String(price).trim()
   const cleaned = base.replace(/[^\d,.-]/g, "")
 
-  // se depois de limpar não sobrou nada, não é número
   if (!cleaned) return null
 
   const normalized = cleaned.includes(",")
     ? cleaned.replace(/\./g, "").replace(",", ".")
     : cleaned
 
-  // se virou só sinal/ponto/vírgula, também não é número
   if (!/[0-9]/.test(normalized)) return null
 
   const n = Number(normalized)

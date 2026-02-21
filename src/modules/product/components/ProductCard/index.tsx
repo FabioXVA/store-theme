@@ -1,8 +1,10 @@
+import type { JSX } from "react"
+
 import { Card } from "../../../../shered/components/Card"
 import { Rating } from "../../../../shered/components/Rating"
 import type { Product } from "../../types/Product"
 
-export const ProductCard = (product: Product) => {
+export const ProductCard = (product: Product): JSX.Element => {
   return (
     <div className="bg-slate-900 p-8 h-[450px] rounded-xl max-w-md mx-auto flex justify-center ">
       <Card imgSrc={product.image} imgAlt="imac-front" class_card_image="h-1/2 m-auto">
