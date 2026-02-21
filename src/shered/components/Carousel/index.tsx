@@ -1,14 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { baseConfig } from "./baseConfig";
-import { CarouselProps } from "./types";
-import { SwiperOptions } from "swiper/types";
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
 
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Autoplay, Navigation, Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
+import type { SwiperOptions } from "swiper/types"
 
-export const Carousel = ({ slide_config, itens, renderItem}:  CarouselProps<T>) => {
+import { baseConfig } from "./baseConfig"
+import type { CarouselProps } from "./types"
+
+export const Carousel = ({ slide_config, itens, renderItem }: CarouselProps<T>) => {
   const config: SwiperOptions = {
     ...baseConfig,
     ...slide_config,
@@ -17,16 +18,13 @@ export const Carousel = ({ slide_config, itens, renderItem}:  CarouselProps<T>) 
       ...slide_config?.breakpoints,
     },
     modules: [Navigation, Pagination, Autoplay],
-  };
+  }
 
   return (
-        <Swiper  {...config}>
-            {itens?.map((item, idx) => (
-                <SwiperSlide key={idx}>
-                    {renderItem(item)}
-                </SwiperSlide>
-            ))}
-
-        </Swiper>
-        );
-};
+    <Swiper {...config}>
+      {itens?.map((item, idx) => (
+        <SwiperSlide key={idx}>{renderItem(item)}</SwiperSlide>
+      ))}
+    </Swiper>
+  )
+}
