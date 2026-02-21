@@ -1,5 +1,3 @@
 describe("Home", () => {
-    it("deve renderizar", ()=>{
-
-    })
+  it("deve renderizar", () => {})
 })
