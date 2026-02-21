@@ -1,9 +1,9 @@
 export type FeaturedProductProps = {
-    products:FeaturedProductItemProps[]
-};
+  products: FeaturedProductItemProps[]
+}
 export type FeaturedProductItemProps = {
-    featuredProductClass?: string;
-    title: string;
-    image: string;
-    link:string;
+  featuredProductClass?: string
+  title: string
+  image: string
+  link: string
 }

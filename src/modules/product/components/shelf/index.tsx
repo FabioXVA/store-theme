@@ -1,8 +1,7 @@
-import { ProductCard } from "../ProductCard";
-import { Carousel } from "../../../../shered/components/Carousel";
-import {ShelfProps} from "./types"
-import {defaultShelfConfig} from "./defaultShelfConfig"
-
+import { Carousel } from "../../../../shered/components/Carousel"
+import { ProductCard } from "../ProductCard"
+import { defaultShelfConfig } from "./defaultShelfConfig"
+import type { ShelfProps } from "./types"
 
 const Shelf = ({ slide_config, products }: ShelfProps) => {
   const finalConfig = {
@@ -12,18 +11,15 @@ const Shelf = ({ slide_config, products }: ShelfProps) => {
       ...defaultShelfConfig.breakpoints,
       ...slide_config?.breakpoints,
     },
-  };
+  }
 
   return (
     <Carousel
-        slide_config={ finalConfig}
-        itens={products}
-        renderItem={(product) => (
-        <ProductCard {...product} />
-      )}
-        
+      slide_config={finalConfig}
+      itens={products}
+      renderItem={(product) => <ProductCard {...product} />}
     />
-  );
-};
+  )
+}
 
-export default Shelf;
+export default Shelf
