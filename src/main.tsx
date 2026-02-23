@@ -4,6 +4,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 
 import App from "../App/app"
+import { CartProvider } from "./modules/cart/context/CartProvider"
 const root = document.getElementById("root")
 
 if (!root) {
@@ -12,6 +13,8 @@ if (!root) {
 
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <App />
+    <CartProvider>
+      <App />
+    </CartProvider>
   </React.StrictMode>,
 )

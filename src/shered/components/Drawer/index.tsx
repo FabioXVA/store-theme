@@ -1,4 +1,4 @@
-import type { JSX } from "react"
+import { type JSX } from "react"
 
 interface Props {
   children: React.ReactNode
@@ -6,10 +6,11 @@ interface Props {
 }
 
 export const Drawer = ({ id, children }: Props): JSX.Element => {
+  const isDrawerOpen = false
   return (
     <div
       id={`drawer-${id}`}
-      className="bg-white fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform  bg-neutral-primary-soft w-96 border-e border-default"
+      className={`bg-white fixed ${!isDrawerOpen && "translate-[100vw]"} top-0 right-0 z-40 h-screen p-4 overflow-y-auto  transition-transform  bg-neutral-primary-soft w-96 border-e border-default`}
       tabIndex={-1}
       aria-labelledby="drawer-label"
     >

@@ -1,8 +1,12 @@
 import type { JSX } from "react"
 
+import { useCart } from "@/modules/cart/hooks/useCart"
+import type { Product } from "@/modules/product/types/Product"
+
 import { Button } from "../Button"
 
-export const BuyButton = (): JSX.Element => {
+export const BuyButton = (product: Product): JSX.Element => {
+  const { addToCart } = useCart()
   const Icon = (
     <svg
       className="w-5 h-5 -ms-2 me-2"
@@ -22,15 +26,16 @@ export const BuyButton = (): JSX.Element => {
       />
     </svg>
   )
+
   return (
-    <div>
+    <>
       <Button
         link=""
         type="button"
         title="Adicionar ao carrinho"
         icon={Icon}
-        //onClick={addToCart(id:number)}
+        onclick={() => addToCart(product)}
       />
-    </div>
+    </>
   )
 }

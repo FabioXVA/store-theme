@@ -1,12 +1,13 @@
-import type { JSX } from "react"
+import { type JSX } from "react"
 
-import { Card } from "../../../../shered/components/Card"
-import { Rating } from "../../../../shered/components/Rating"
-import type { Product } from "../../types/Product"
+import type { Product } from "@/modules/product/types/Product"
+import { BuyButton } from "@/shered/components/BuyButton"
+import { Card } from "@/shered/components/Card"
+import { Rating } from "@/shered/components/Rating"
 
 export const ProductCard = (product: Product): JSX.Element => {
   return (
-    <div className="bg-slate-900 p-8 h-[450px] rounded-xl max-w-md mx-auto flex justify-center ">
+    <div className="bg-slate-900 p-8 h-[450px] rounded-xl max-w-md mx-auto flex justify-center box-content">
       <Card imgSrc={product.image} imgAlt="imac-front" class_card_image="h-1/2 m-auto">
         <>
           <a
@@ -24,6 +25,7 @@ export const ProductCard = (product: Product): JSX.Element => {
               ou 10x {product.price / 10} sem juros
             </p>
           </div>
+          <BuyButton {...product} />
         </>
       </Card>
     </div>
