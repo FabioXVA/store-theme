@@ -1,9 +1,10 @@
 import type { ReactElement, ReactNode } from "react"
 import { createContext, useState } from "react"
 
-import productToCartItem from "@/modules/cart/services/mappers/productToCartItem"
+import { addItem } from "@/modules/cart/domain/useCases/addItem"
+import { removeFromCart } from "@/modules/cart/domain/useCases/removeFromCart"
+import { updateFromCart } from "@/modules/cart/domain/useCases/updateFromCart"
 import type { CartItem } from "@/modules/cart/types/CartItem"
-import type { Product } from "@/modules/product/types/Product"
 
 import type { CartProviderProps } from "./type"
 
@@ -12,52 +13,16 @@ export const MiniCartContext = createContext<CartProviderProps | null>(null)
 export function CartProvider({ children }: { children: ReactNode }): ReactElement {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
 
-  const addToCart = (product: Product): void => {
-    const cartItem = productToCartItem(product)
-
-    setCartItems((prev) => {
-      const exists = prev.find((item) => {
-        return item.productId === cartItem.productId
-      })
-
-      if (exists) {
-        return prev.map((item) =>
-          item.productId === cartItem.productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        )
-      }
-
-      return [...prev, { ...cartItem, quantity: 1 }]
-    })
+  const addToCart = (cartItem: CartItem): void => {
+    setCartItems((prev) => addItem(prev, cartItem))
   }
 
-  const removeFromCart = (product: Product): void => {
-    const cartItem = productToCartItem(product)
-    setCartItems((prev) => {
-      return prev.filter((item: CartItem) => {
-        return item.productId !== cartItem.productId
-      })
-    })
+  const removeToCart = (cartItem: CartItem): void => {
+    setCartItems((prev) => removeFromCart(prev, cartItem))
   }
 
-  const updateQuantity = (product: Product): void => {
-    const cartItem = productToCartItem(product)
-    setCartItems((prev) => {
-      const exists = prev.find((item: CartItem) => {
-        return item.productId === cartItem.productId
-      })
-
-      if (exists) {
-        return prev.map((item) =>
-          item.productId === cartItem.productId
-            ? { ...item, quantity: item.quantity + 1 }
-            : item,
-        )
-      }
-
-      return [...prev, { ...product, quantity: 1 }]
-    })
+  const updateQuantity = (cartItem: CartItem): void => {
+    setCartItems((prev) => updateFromCart(prev, cartItem))
   }
 
   const clearCart = (): void => {
@@ -75,7 +40,7 @@ export function CartProvider({ children }: { children: ReactNode }): ReactElemen
         totalItems,
         totalPrice,
         addToCart,
-        removeFromCart,
+        removeToCart,
         updateQuantity,
         clearCart,
       }}

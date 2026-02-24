@@ -1,12 +1,14 @@
 import type { JSX } from "react"
 
-import { useCart } from "@/modules/cart/hooks/useCart"
+import { useCart } from "@/modules/cart/domain/useCases/useCart"
+import { productToCartItem } from "@/modules/cart/services/mappers/productToCartItem"
 import type { Product } from "@/modules/product/types/Product"
 
 import { Button } from "../Button"
 
 export const BuyButton = (product: Product): JSX.Element => {
   const { addToCart } = useCart()
+  const cardItem = productToCartItem(product)
   const Icon = (
     <svg
       className="w-5 h-5 -ms-2 me-2"
@@ -34,7 +36,7 @@ export const BuyButton = (product: Product): JSX.Element => {
         type="button"
         title="Adicionar ao carrinho"
         icon={Icon}
-        onclick={() => addToCart(product)}
+        onclick={() => addToCart(cardItem)}
       />
     </>
   )

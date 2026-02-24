@@ -10,10 +10,3 @@ export const useCart = (): CartProviderProps => {
   }
   return context
 }
-//Responsabilidades:
-
-// Consumir o CartContext
-
-// Garantir que está sendo usado dentro do Provider
-
-// Expor API simplificada para UI
