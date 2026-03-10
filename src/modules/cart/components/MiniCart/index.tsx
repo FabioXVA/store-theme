@@ -10,9 +10,9 @@ const MiniCart = (): JSX.Element => {
 
   if (load) return <p>Loading...</p>
   if (error) return <p>{error.toString()}</p>
-
+  const isDrawerOpen = false
   return (
-    <Drawer id={""}>
+    <Drawer id={""} isDrawerOpen={isDrawerOpen}>
       {products.map((product: Product) => (
         <ProductCard key={product.id} {...product} />
       ))}

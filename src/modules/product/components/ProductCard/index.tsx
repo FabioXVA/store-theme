@@ -7,7 +7,7 @@ import { Rating } from "@/shered/components/Rating"
 
 export const ProductCard = (product: Product): JSX.Element => {
   return (
-    <div className="bg-slate-900 p-8 h-[450px] rounded-xl max-w-md mx-auto flex justify-center box-content">
+    <div className="bg-slate-900 p-8 h-[450px] rounded-lg max-w-md mx-auto flex justify-center box-content">
       <Card imgSrc={product.image} imgAlt="imac-front" class_card_image="h-1/2 m-auto">
         <>
           <a

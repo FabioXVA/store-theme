@@ -2,11 +2,11 @@ import { type JSX } from "react"
 
 interface Props {
   children: React.ReactNode
+  isDrawerOpen: boolean
   id: string
 }
 
-export const Drawer = ({ id, children }: Props): JSX.Element => {
-  const isDrawerOpen = false
+export const Drawer = ({ id, isDrawerOpen = true, children }: Props): JSX.Element => {
   return (
     <div
       id={`drawer-${id}`}

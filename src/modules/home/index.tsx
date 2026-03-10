@@ -1,12 +1,13 @@
 import type { JSX } from "react"
 
+import MiniCart from "../cart/components/MiniCart"
+import { Header } from "../header/components"
 import Slider from "../home/components/SlideHome"
 import { FeaturedProduct } from "../product/components/FeaturedProduct"
 import Shelf from "../product/components/Shelf"
 import { useProducts } from "../product/hooks/useProducts/useProducts"
 import type { Product } from "../product/types/Product"
 import { bannerProducts, slideProps } from "./props"
-import MiniCart from "../cart/components/MiniCart"
 
 export default function Home(): JSX.Element {
   const { products, load, error } = useProducts()
@@ -25,6 +26,9 @@ export default function Home(): JSX.Element {
 
   return (
     <div>
+      <div className="w-full">
+        <Header />
+      </div>
       <div className="max-w-[1345px]  m-auto">
         <MiniCart />
       </div>
