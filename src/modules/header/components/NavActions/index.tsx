@@ -1,8 +1,12 @@
-import type { ReactElement } from "react"
+import { type ReactElement, useContext } from "react"
 
-import { OpenDrawer } from "./OpenDrawer"
+import { MiniCartContext } from "@/modules/cart/context/CartProvider"
+
+import { OpenMenu } from "./OpenMenu"
 
 const NavActions = (): ReactElement => {
+  const useCart = useContext(MiniCartContext)
+
   return (
     <div className="flex items-center lg:order-2">
       <a href="#" className="text-white hover:text-amber-700/95 p-2">
@@ -21,7 +25,11 @@ const NavActions = (): ReactElement => {
           />
         </svg>
       </a>
-      <a href="#" className="text-white hover:text-amber-700/95 p-2">
+      <a
+        href="#"
+        className="text-white hover:text-amber-700/95 p-2"
+        onClick={useCart?.toggleMiniCart}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -37,7 +45,7 @@ const NavActions = (): ReactElement => {
           />
         </svg>
       </a>
-      <OpenDrawer />
+      <OpenMenu />
     </div>
   )
 }

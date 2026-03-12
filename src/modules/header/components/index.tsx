@@ -2,6 +2,7 @@ import type { ReactElement } from "react"
 
 import Logo from "./Logo"
 import NavActions from "./NavActions"
+import { NavBarMenu } from "./NavBarMenu"
 
 export const Header = (): ReactElement => {
   const propsLogo = {
@@ -16,7 +17,7 @@ export const Header = (): ReactElement => {
           <Logo url={propsLogo.url} imageLink={propsLogo.imageLink} />
           <NavActions />
         </div>
-        <></>
+        <NavBarMenu />
       </nav>
     </header>
   )

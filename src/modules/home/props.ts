@@ -35,7 +35,7 @@ export const slideProps = [
     buttonText: "Compre Agora",
   },
   {
-    title: "Melhor Oferts de eletronicos",
+    title: "Melhor Ofertas de eletronicos",
     subtitle: "Explore a última tecnologia",
     image: "slider3.png",
     link: "/category/electronics",

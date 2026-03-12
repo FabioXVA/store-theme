@@ -12,7 +12,11 @@ export const MiniCartContext = createContext<CartProviderProps | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }): ReactElement {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
+  const [openMinicart, setOpenMinicart] = useState<boolean>(false)
 
+  const toggleMiniCart = (): void => {
+    setOpenMinicart((prev) => !prev)
+  }
   const addToCart = (cartItem: CartItem): void => {
     setCartItems((prev) => addItem(prev, cartItem))
   }
@@ -39,6 +43,8 @@ export function CartProvider({ children }: { children: ReactNode }): ReactElemen
         cartItems,
         totalItems,
         totalPrice,
+        openMinicart,
+        toggleMiniCart,
         addToCart,
         removeToCart,
         updateQuantity,

@@ -29,7 +29,7 @@ export default function Home(): JSX.Element {
       <div className="w-full">
         <Header />
       </div>
-      <div className="max-w-[1345px]  m-auto">
+      <div>
         <MiniCart />
       </div>
       <div className="max-w-[1345px]  m-auto">
