@@ -12,7 +12,7 @@ export const MiniCartContext = createContext<CartProviderProps | null>(null)
 
 export function CartProvider({ children }: { children: ReactNode }): ReactElement {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
-  const [openMinicart, setOpenMinicart] = useState<boolean>(false)
+  const [openMinicart, setOpenMinicart] = useState<boolean>(true)
 
   const toggleMiniCart = (): void => {
     setOpenMinicart((prev) => !prev)
