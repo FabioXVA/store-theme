@@ -3,6 +3,7 @@ import type { Product } from "@/modules/product/types/Product"
 
 export const productToCartItem = (product: Product): CartItem => {
   const CartItem = {
+    image: product.image,
     productId: product.id,
     title: product.title,
     price: product.price,

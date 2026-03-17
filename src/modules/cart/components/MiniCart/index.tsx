@@ -1,20 +1,21 @@
-import type { JSX } from "react"
+import type { ReactElement } from "react"
 
 import { Drawer } from "../../../../shered/components/Drawer"
-import { ProductCard } from "../../../product/components/ProductCard"
-import { useProducts } from "../../../product/hooks/useProducts/useProducts"
-import type { Product } from "../../../product/types/Product"
+import { useCart } from "../../domain/useCases/useCart"
+import type { CartItem } from "../../types/CartItem"
+import MiniCartItem from "./MiniCartItem"
 
-const MiniCart = (): JSX.Element => {
-  const { products, load, error } = useProducts()
-
-  if (load) return <p>Loading...</p>
-  if (error) return <p>{error.toString()}</p>
-  const isDrawerOpen = false
+const MiniCart = (): ReactElement => {
+  const { addToCart, cartItems, removeToCart } = useCart()
   return (
-    <Drawer id={""} isDrawerOpen={isDrawerOpen}>
-      {products.map((product: Product) => (
-        <ProductCard key={product.id} {...product} />
+    <Drawer id={"MiniCart"}>
+      {cartItems?.map((product: CartItem, idx: number) => (
+        <MiniCartItem
+          key={idx}
+          product={product}
+          addItem={addToCart(product)}
+          removeItem={removeToCart(product)}
+        />
       ))}
     </Drawer>
   )

@@ -11,11 +11,7 @@ export const Card = ({
 }: CardProps): JSX.Element => {
   return (
     <div className={`h-full max-w-67.5 ${class_card}`}>
-      <img
-        src={imgSrc}
-        alt={imgAlt}
-        className={`${class_card_image} object-contain w-full`}
-      />
+      <img src={imgSrc} alt={imgAlt} className={`${class_card_image} object-contain`} />
       <div className="mt-4 flex flex-col">{children}</div>
     </div>
   )
