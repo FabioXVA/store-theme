@@ -1,16 +1,18 @@
-import { type ReactElement, useContext } from "react"
-
-import { MiniCartContext } from "@/modules/cart/context/CartProvider"
+import { type ReactElement } from "react"
 
 interface Props {
   children: React.ReactNode
   id: string
+  openMinicart: boolean
+  toggleMiniCart: ()=> void
 }
 
-export const Drawer = ({ id, children }: Props): ReactElement => {
-  const cart = useContext(MiniCartContext)!
-  const { openMinicart, toggleMiniCart } = cart
-
+export const Drawer = ({
+  id,
+  children,
+  openMinicart,
+  toggleMiniCart,
+}: Props): ReactElement => {
   return (
     <>
       <div

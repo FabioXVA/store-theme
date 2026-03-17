@@ -6,17 +6,19 @@ import type { CartItem } from "../../types/CartItem"
 import MiniCartItem from "./MiniCartItem"
 
 const MiniCart = (): ReactElement => {
-  const { addToCart, cartItems, removeToCart } = useCart()
+  const { addToCart, cartItems, removeToCart, totalPrice, openMinicart, toggleMiniCart } =
+    useCart()
   return (
-    <Drawer id={"MiniCart"}>
+    <Drawer id={"MiniCart"} openMinicart={openMinicart} toggleMiniCart={toggleMiniCart}>
       {cartItems?.map((product: CartItem, idx: number) => (
         <MiniCartItem
           key={idx}
           product={product}
-          addItem={addToCart(product)}
-          removeItem={removeToCart(product)}
+          addItem={addToCart}
+          removeItem={removeToCart}
         />
       ))}
+      <p>Total: {totalPrice}</p>
     </Drawer>
   )
 }

@@ -7,7 +7,7 @@ import type { Product } from "@/modules/product/types/Product"
 import { Button } from "../Button"
 
 export const BuyButton = (product: Product): JSX.Element => {
-  const { addToCart } = useCart()
+  const { addToCart, toggleMiniCart } = useCart()
   const cardItem = productToCartItem(product)
   const Icon = (
     <svg
@@ -36,7 +36,10 @@ export const BuyButton = (product: Product): JSX.Element => {
         type="button"
         title="Adicionar ao carrinho"
         icon={Icon}
-        onclick={() => addToCart(cardItem)}
+        onclick={() => {
+          addToCart(cardItem)
+          toggleMiniCart()
+        }}
       />
     </>
   )

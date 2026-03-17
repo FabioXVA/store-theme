@@ -12,7 +12,6 @@ type Props = {
 
 const MiniCartItem = (props: Props): ReactElement => {
   const { product, addItem, removeItem } = props
-  console.log(props)
   return (
     <div>
       <div className="bg-slate-900 p-3 pr-8 pl-8 w-full h-[150px] rounded-xl max-w-md mx-auto flex justify-start">
@@ -38,7 +37,7 @@ const MiniCartItem = (props: Props): ReactElement => {
             <div className="flex justify-between  rounded-xl w-20 mt-2">
               <button
                 className="flex justify-center items-center w-5 h-5 rounded-full text-white focus:outline-none bg-gray-400  hover:bg-amber-600"
-                onClick={() => addItem}
+                onClick={() => addItem?.(product)}
               >
                 +
               </button>
@@ -49,7 +48,7 @@ const MiniCartItem = (props: Props): ReactElement => {
               />
               <button
                 className="flex justify-center items-center w-5 h-5 rounded-full text-white focus:outline-none bg-gray-400 hover:bg-amber-600"
-                onClick={() => removeItem}
+                onClick={() => removeItem?.(product)}
               >
                 -
               </button>
